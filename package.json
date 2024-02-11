@@ -1,0 +1,29 @@
+{
+  "name": "404-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmartTokenLabs/404-Testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmartTokenLabs/404-Testing/issues"
+  },
+  "homepage": "https://github.com/SmartTokenLabs/404-Testing#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.1",
+    "dotenv": "^16.4.2",
+    "hardhat": "^2.19.5",
+    "stl-contracts": "^2.5.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0"
+  }
+}

@@ -1,0 +1,60 @@
+<script type="text/javascript">
+	var value_erc721BalanceOf;
+var value_owned;
+
+	class Token {
+		
+		constructor(tokenInstance) {
+			this.props = tokenInstance;
+		}
+
+		render() {
+            return `<div class="card"><div class="card-image"> 
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fill-rule="evenodd">
+                <circle fill="#597DF2" cx="12" cy="12" r="12"/>
+                <path fill="#FFF" d="M12 21.6v-5.173L6 12.69z"/>
+                <path fill="#BDCBFA" d="M12 16.427V21.6l6-8.91zM12 1.8v6.93l6 2.584z"/>
+                <path fill="#FFF" d="m12 1.8-6 9.514 6-2.584z"/>
+                <path fill="#BDCBFA" d="m6 11.314 6 3.356V8.73z"/>
+                <path fill="#7B96F5" d="m12 14.67 6-3.356-6-2.584z"/>
+            </g>
+        </svg>  			    
+        </div>
+        <div class="text">
+            <p class="title">Erc721BalanceOf</p>
+            <p class="value">${value_erc721BalanceOf}</p>
+        </div>
+        </div>
+        <div class="card"><div class="card-image"> 
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fill-rule="evenodd">
+                <circle fill="#597DF2" cx="12" cy="12" r="12"/>
+                <path fill="#FFF" d="M12 21.6v-5.173L6 12.69z"/>
+                <path fill="#BDCBFA" d="M12 16.427V21.6l6-8.91zM12 1.8v6.93l6 2.584z"/>
+                <path fill="#FFF" d="m12 1.8-6 9.514 6-2.584z"/>
+                <path fill="#BDCBFA" d="m6 11.314 6 3.356V8.73z"/>
+                <path fill="#7B96F5" d="m12 14.67 6-3.356-6-2.584z"/>
+            </g>
+        </svg>  			    
+        </div>
+        <div class="text">
+            <p class="title">Owned</p>
+            <p class="value">${value_owned}</p>
+        </div>
+        </div>
+        <br/><h3>Transfer</h3><br/><p>Call transfer function<br/>`;
+        }
+	}
+
+	web3.tokens.dataChanged = (oldTokens, updatedTokens, cardId) => {
+		const currentTokenInstance = updatedTokens.currentInstance;
+		value_erc721BalanceOf = currentTokenInstance.erc721BalanceOf
+//value = Math.floor(1.0 * (currentTokenInstance.erc721BalanceOf / 10 ** 18) * 10000) / 10000; // <-- use for decimals 18 return value
+value_owned = currentTokenInstance.owned
+//value = Math.floor(1.0 * (currentTokenInstance.owned / 10 ** 18) * 10000) / 10000; // <-- use for decimals 18 return value
+
+		document.getElementById(cardId).innerHTML = new Token(currentTokenInstance).render();
+	};
+
+</script>
