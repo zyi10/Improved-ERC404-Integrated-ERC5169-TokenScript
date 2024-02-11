@@ -72,7 +72,7 @@
         <ts:origins>
             <ethereum:call function="erc20BalanceOf" contract="Token" as="uint">
                 <ts:data>
-                    <ts:address ref="owner_"/>
+                    <ts:address ref="ownerAddress"/>
                 </ts:data>
             </ethereum:call>
         </ts:origins>
@@ -89,7 +89,7 @@
         <ts:origins>
             <ethereum:call function="erc721BalanceOf" contract="Token" as="uint">
                 <ts:data>
-                    <ts:address ref="owner_"/>
+                    <ts:address ref="ownerAddress"/>
                 </ts:data>
             </ethereum:call>
         </ts:origins>
@@ -106,7 +106,7 @@
         <ts:origins>
             <ethereum:call function="owned" contract="Token" as="uint">
                 <ts:data>
-                    <ts:address ref="owner_"/>
+                    <ts:address ref="ownerAddress"/>
                 </ts:data>
             </ethereum:call>
         </ts:origins>
