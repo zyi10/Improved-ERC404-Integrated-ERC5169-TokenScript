@@ -24,6 +24,8 @@ async function main() {
   const tokenAmountToSend = hre.ethers.parseEther("3.2"); //sending 12.2 ERC20
   const holderAddress = "0xA20efc4B9537d27acfD052003e311f762620642D";
 
+  const secondHolder =  "0xe3Be9E2bbfbCf69a2E812fd495676983908F5E1c";
+
   console.log(`Amount to send: ${tokenAmountToSend}`);
 
   let getOwner = await human404.connect(signer).owner();
@@ -32,14 +34,14 @@ async function main() {
   let tokenURL = await human404.connect(signer).tokenURI(1);
   console.log(`URL: ${tokenURL}`);
 
-  let tokenBal = await human404.connect(signer).erc20BalanceOf(signerAddr);
+  let tokenBal = await human404.connect(signer).erc20BalanceOf(secondHolder);
   console.log(`Bal: ${tokenBal} ${hre.ethers.formatEther(tokenBal)}`);
 
-  let nftBal = await human404.connect(signer).erc721BalanceOf(signerAddr);
+  let nftBal = await human404.connect(signer).erc721BalanceOf(secondHolder);
   console.log(`NFT Bal: ${nftBal}`);
 
   //test send, this will dump all NFTs that sender will "lose" if they transfer 3.2 ERC20 tokens
-  let getSendTokenIds = await human404.connect(signer).calculateERC721Transfers(signerAddr, tokenAmountToSend);
+  let getSendTokenIds = await human404.connect(signer).calculateERC721Transfers(secondHolder, tokenAmountToSend);
 
   console.log(`complete`);
 
@@ -47,7 +49,7 @@ async function main() {
     console.log(getSendTokenIds[i].toString());
   }
 
-  let newBalance = await hre.ethers.provider.getBalance(signer.address);
+  let newBalance = await hre.ethers.provider.getBalance(secondHolder);
   console.log(`deploy key balance ${hre.ethers.formatEther(newBalance)}`);
 
 }
