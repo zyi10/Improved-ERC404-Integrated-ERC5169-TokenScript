@@ -21,41 +21,35 @@ async function main() {
   const Human404 = await ethers.getContractFactory('HumanInterface');
   let human404 = await Human404.attach(human404Address);
 
-  const tokenAmountToSend = hre.ethers.parseEther("12.2"); //sending 12.2 ERC20
-  const holderAddress = "0xA204B9537d27acfD052003e311f762620642D";
+  const tokenAmountToSend = hre.ethers.parseEther("3.2"); //sending 12.2 ERC20
+  const holderAddress = "0xA20efc4B9537d27acfD052003e311f762620642D";
 
   console.log(`Amount to send: ${tokenAmountToSend}`);
 
   let getOwner = await human404.connect(signer).owner();
   console.log(`Owner ${getOwner}`);
 
-  //test send
-  let getSendTokenIds = await human404.connect(signer).calculateERC721Transfers(holderAddress, tokenAmountToSend);
+  let tokenURL = await human404.connect(signer).tokenURI(1);
+  console.log(`URL: ${tokenURL}`);
+
+  let tokenBal = await human404.connect(signer).erc20BalanceOf(signerAddr);
+  console.log(`Bal: ${tokenBal} ${hre.ethers.formatEther(tokenBal)}`);
+
+  let nftBal = await human404.connect(signer).erc721BalanceOf(signerAddr);
+  console.log(`NFT Bal: ${nftBal}`);
+
+  //test send, this will dump all NFTs that sender will "lose" if they transfer 3.2 ERC20 tokens
+  let getSendTokenIds = await human404.connect(signer).calculateERC721Transfers(signerAddr, tokenAmountToSend);
 
   console.log(`complete`);
 
-  console.log(`TokenIds: ${getSendTokenIds}`);
-  
+  for(let i = 0; i < getSendTokenIds.length; i++) {
+    console.log(getSendTokenIds[i].toString());
+  }
 
   let newBalance = await hre.ethers.provider.getBalance(signer.address);
   console.log(`deploy key balance ${hre.ethers.formatEther(newBalance)}`);
 
-
-
-
-  /*const lockedAmount = hre.ethers.parseEther("0.001");
-
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
-
-  await lock.waitForDeployment();
-
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );*/
 }
 
 // We recommend this pattern to be able to use async/await everywhere
