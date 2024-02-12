@@ -9,8 +9,9 @@ The Improved ERC404 is based on [ERC404 V2](https://github.com/Pandora-Labs-Org/
 
 ## Installation
 
-## Example Usage
-
+# Example Usage
+This specific ERC404 improvement will give token holders greater visibility and control over ERC-20 and ERC-721 token transfers.
+It will also enable advanced use cases beyond collectibles, such as ERC404 memberships and ERC404 accounts.  
 # Documentation
 [Ethereum Improvement Proposals-ERC5169](https://eips.ethereum.org/EIPS/eip-5169an)
 
