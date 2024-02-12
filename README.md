@@ -9,6 +9,31 @@ The Improved ERC404 is based on [ERC404 V2](https://github.com/Pandora-Labs-Org/
 
 ## Installation
 
+First create a HardHat project .env file with the following API keys:
+
+```
+PRIVATE_KEY = "0x2222222222222222233333333333333333333333333334444444444444455555"
+INFURA_KEY = "232323baba122323232abab23232323b"
+ETHERSCAN_API_KEY="AAAAAAAAAAAAAAAA123456AAAAAAAAAAAA"
+```
+
+The private key should have funding for either Eth Mainnet, Sepolia or Mumbai.
+If you use Infura for your RPC then you will need to source a key, or simply change the RPC to any of the free RPCs from https://chainlist.org
+
+In the project root directory init the HardHat environment:
+
+```bash
+npm init -y
+npm install hardhat
+npx hardhat compile
+```
+
+After editing the derived `TokenScript404.sol` as you wish you can deploy on the chosen chain eg:
+
+```bash
+npx hardhat run scripts/deploy.js --network sepolia
+```
+
 # Example Usage
 This specific ERC404 improvement will give token holders greater visibility and control over ERC-20 and ERC-721 token transfers.
 It will also enable advanced use cases beyond collectibles, such as ERC404 memberships and ERC404 accounts.  
