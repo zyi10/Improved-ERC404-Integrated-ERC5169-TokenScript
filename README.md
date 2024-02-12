@@ -16,5 +16,6 @@ The Improved ERC404 is based on [ERC404 V2](https://github.com/Pandora-Labs-Org/
 
 [TokenScript Papers](https://github.com/SmartTokenLabs/papers/releases)
 # Contributing
+We welcome contributions of all kinds, from feature requests and bug reports to code contributions.
 # License
 This project is licensed under the MIT License. See the LICENSE file for more details.
