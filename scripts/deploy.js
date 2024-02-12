@@ -17,30 +17,13 @@ async function main() {
   console.log(`deploy key balance ${hre.ethers.formatEther(startBalance)}`);
 
   //deploy contract
-  const mintAddress = "0xA20efc4B9537d27acfD052003e311f762620642D";
+  const mintAddress = "0xe3Be9E2bbfbCf69a2E812fd495676983908F5E1c";
 
   const humanInterface = await hre.ethers.deployContract("HumanInterface", [mintAddress, mintAddress]);
   await humanInterface.waitForDeployment();
 
   let newBalance = await hre.ethers.provider.getBalance(signer.address);
   console.log(`deploy key balance ${hre.ethers.formatEther(newBalance)}`);
-
-
-
-
-  /*const lockedAmount = hre.ethers.parseEther("0.001");
-
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
-
-  await lock.waitForDeployment();
-
-  console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-  );*/
 }
 
 // We recommend this pattern to be able to use async/await everywhere

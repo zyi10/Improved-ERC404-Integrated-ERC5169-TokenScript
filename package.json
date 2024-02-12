@@ -21,6 +21,7 @@
     "@openzeppelin/contracts": "^5.0.1",
     "dotenv": "^16.4.2",
     "hardhat": "^2.19.5",
+    "node-fetch": "^3.3.2",
     "stl-contracts": "^2.5.1"
   },
   "devDependencies": {

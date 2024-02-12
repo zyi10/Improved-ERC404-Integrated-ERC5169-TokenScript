@@ -29,7 +29,7 @@ contract HumanInterface is Ownable, ERC404, ERC5169 {
         address initialMintRecipient_
     ) ERC404(__NAME, __SYM, _decimals) Ownable(initialOwner_) {
         // Do not mint the ERC721s to the initial owner, as it's a waste of gas.
-        _setWhitelist(initialMintRecipient_, true);
+        _setERC721TransferExempt(initialMintRecipient_, true);
         _mintERC20(initialMintRecipient_, mintSupply * units, false);
     }
 
@@ -46,7 +46,7 @@ contract HumanInterface is Ownable, ERC404, ERC5169 {
     }
 
     function setWhitelist(address account_, bool value_) external onlyOwner {
-        _setWhitelist(account_, value_);
+        _setERC721TransferExempt(account_, value_);
     }
 
     // Treat as ERC721 type, provide ERC20 interface in TokenScript
@@ -54,9 +54,8 @@ contract HumanInterface is Ownable, ERC404, ERC5169 {
         bytes4 interfaceId
     ) public view override(ERC5169, ERC404) returns (bool) {
         return
-            interfaceId == type(IERC20).interfaceId ||
             ERC5169.supportsInterface(interfaceId) ||
-            super.supportsInterface(interfaceId);
+            ERC404.supportsInterface(interfaceId);
     }
 
     // ERC-5169

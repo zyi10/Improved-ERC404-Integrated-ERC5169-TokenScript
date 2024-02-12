@@ -316,7 +316,7 @@ value_erc721BalanceOf = currentTokenInstance.erc721BalanceOf
         <ts:origins>
             <ethereum:call as="uint" contract="Token" function="erc20BalanceOf">
                 <ts:data>
-                    <ts:address ref="owner_"/>
+                    <ts:address ref="ownerAddress"/>
                 </ts:data>
             </ethereum:call>
         </ts:origins>
@@ -333,7 +333,7 @@ value_erc721BalanceOf = currentTokenInstance.erc721BalanceOf
         <ts:origins>
             <ethereum:call as="uint" contract="Token" function="erc721BalanceOf">
                 <ts:data>
-                    <ts:address ref="owner_"/>
+                    <ts:address ref="ownerAddress"/>
                 </ts:data>
             </ethereum:call>
         </ts:origins>
@@ -350,7 +350,7 @@ value_erc721BalanceOf = currentTokenInstance.erc721BalanceOf
         <ts:origins>
             <ethereum:call as="uint" contract="Token" function="owned">
                 <ts:data>
-                    <ts:address ref="owner_"/>
+                    <ts:address ref="ownerAddress"/>
                 </ts:data>
             </ethereum:call>
         </ts:origins>
