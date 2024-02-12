@@ -1,5 +1,5 @@
 # Improved ERC404 - Integrated with ERC5169 and TokenScript
-The Improved ERC404 is based on [ERC404 V2](https://github.com/Pandora-Labs-Org/erc404), [ERC5169](https://eips.ethereum.org/EIPS/eip-5169an) and [TokenScript](https://github.com/SmartTokenLabs/TokenScript). By incorporating ERC5169 and TokenScript into the ERC404 tokens as the token frontend, we facilitate a safer and more convenient operation for users. This integration not only secures and improves user experience, it makes it easier and more intuitive for users to trade with confidence.
+The Improved ERC404 is based on [ERC404 V2](https://github.com/Pandora-Labs-Org/erc404), [ERC5169](https://eips.ethereum.org/EIPS/eip-5169) and [TokenScript](https://github.com/SmartTokenLabs/TokenScript). By incorporating ERC5169 and TokenScript into the ERC404 tokens as the token frontend, we facilitate a safer and more convenient operation for users. This integration not only secures and improves user experience, it makes it easier and more intuitive for users to trade with confidence.
 # Features
 - Standardized Token Frontend: Utilizing TokenScript to provide an HTML-like frontend framework for tokens, standardizing token display and interaction.
 - Secure Frontend-Backend Connection: Ensuring a secure and convenient connection between the token frontend and smart contract backend via the ERC5169 standard.
