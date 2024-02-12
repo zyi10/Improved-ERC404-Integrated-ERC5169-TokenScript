@@ -21,7 +21,7 @@ async function main() {
   const Human404 = await ethers.getContractFactory('HumanInterface');
   let human404 = await Human404.attach(human404Address);
 
-  const tokenAmountToSend = hre.ethers.parseEther("3.2"); //sending 12.2 ERC20
+  const tokenAmountToSend = hre.ethers.parseEther("3.2"); //sending 3.2 ERC20
   const holderAddress = "0xA20efc4B9537d27acfD052003e311f762620642D";
 
   const secondHolder =  "0xe3Be9E2bbfbCf69a2E812fd495676983908F5E1c";
@@ -39,6 +39,13 @@ async function main() {
 
   let nftBal = await human404.connect(signer).erc721BalanceOf(secondHolder);
   console.log(`NFT Bal: ${nftBal}`);
+
+  let ownedNFTs = await human404.connect(signer).owned(secondHolder);
+  console.log(`NFTs owned:`);
+
+  for(let i = 0; i < ownedNFTs.length; i++) {
+    console.log(ownedNFTs[i].toString());
+  }
 
   //test send, this will dump all NFTs that sender will "lose" if they transfer 3.2 ERC20 tokens
   let getSendTokenIds = await human404.connect(signer).calculateERC721Transfers(secondHolder, tokenAmountToSend);
